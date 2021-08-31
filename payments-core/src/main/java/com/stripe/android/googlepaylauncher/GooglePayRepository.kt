@@ -43,12 +43,13 @@ internal class DefaultGooglePayRepository(
     internal constructor(
         context: Context,
         environment: GooglePayEnvironment,
+        existingPaymentMethodRequired: Boolean,
         logger: Logger = Logger.noop()
     ) : this(
         context,
         environment,
         billingAddressParameters = null,
-        existingPaymentMethodRequired = true,
+        existingPaymentMethodRequired = existingPaymentMethodRequired,
         logger
     )
 
