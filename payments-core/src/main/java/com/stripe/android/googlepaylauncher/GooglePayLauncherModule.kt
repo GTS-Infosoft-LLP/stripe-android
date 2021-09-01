@@ -14,10 +14,11 @@ class GooglePayLauncherModule {
     fun provideGooglePayRepositoryFactory(
         appContext: Context,
         logger: Logger
-    ): (GooglePayEnvironment) -> GooglePayRepository = { environment ->
+    ): (GooglePayLauncher.Config) -> GooglePayRepository = { config ->
         DefaultGooglePayRepository(
             appContext,
-            environment,
+            config.environment,
+            config.existingPaymentMethodRequired,
             logger
         )
     }
